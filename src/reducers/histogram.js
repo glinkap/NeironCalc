@@ -15,7 +15,6 @@ export function histogram(state = initialState, action) {
 		}
 		case actionTypes.REDRAW: {
 
-			console.log("пришли в редюсер");
 			return reDraw(state, action);
 		}
 		default: return initialState;
@@ -23,7 +22,6 @@ export function histogram(state = initialState, action) {
 
 }
 function reDraw(state, action) {
-	console.log("state", state, action);
 
 	return {...state, z:[1,2,3]};
 }

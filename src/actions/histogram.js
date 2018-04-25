@@ -17,9 +17,9 @@ export function setVisibilityFilter(filter) {
 }
 
 
-export function reload(text) {
-	return (dispatch, getState) => {
-		console.log("this", this);
-		dispatch(reDraw(text));
-	};
-}
+// export function reload(text) {
+// 	return (dispatch, getState) => {
+// 		console.log("this", this);
+// 		dispatch(reDraw(text));
+// 	};
+// }

@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import presenter from './presenter';
 import * as actions from '../../actions/histogram';
+    console.log("actions.reDraw()", actions.reDraw());
 
 class Histogram extends Component {
-		
 	render() {
-		return presenter([], actions.reload.call(this));
+		return presenter([], () => this.props.reDraw());
 	}
 }
 
@@ -17,8 +17,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    reDraw: bindActionCreators(actions.reDraw(), dispatch),
-    addLine: bindActionCreators(actions.addLine(), dispatch),
+    reDraw: bindActionCreators(actions.reDraw, dispatch),
+    addLine: bindActionCreators(actions.addLine, dispatch),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Histogram);
