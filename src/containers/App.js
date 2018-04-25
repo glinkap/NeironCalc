@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Histogram from './histogram/index'
 
 class App extends Component {
+	
 	render() {
 		return (
 			<div>	

@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function histogram(graphData = [], fetchGraph) {
+export default function histogram(graphData = [], btnClick) {
 	return (
 		<div>
 			<div>Здесь будет график </div>
-			<button onClick={fetchGraph} type="button">Fetch graph data</button>
+			<button onClick={btnClick} type="button">Fetch graph data</button>
 		</div>	
 		);
 }

@@ -14,6 +14,8 @@ export function histogram(state = initialState, action) {
 			}
 		}
 		case actionTypes.REDRAW: {
+
+			console.log("пришли в редюсер");
 			return reDraw(state, action);
 		}
 		default: return initialState;
@@ -25,3 +27,6 @@ function reDraw(state, action) {
 
 	return {...state, z:[1,2,3]};
 }
+// тут должен быть селектор.
+//Селектор — это чистая функция, принимающая в качестве аргумента глобальный стейт и возвращающая его в преобразованном виде.
+// Правило: вся бизнес-логика должна находиться внутри обработчиков событий (санков), селекторов и редюсеров.
