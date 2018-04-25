@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import presenter from './presenter';
 import * as actions from '../../actions/histogram';
-    console.log("actions.reDraw()", actions.reDraw());
 
 class Histogram extends Component {
 	render() {

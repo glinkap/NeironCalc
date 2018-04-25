@@ -14,7 +14,6 @@ export function histogram(state = initialState, action) {
 			}
 		}
 		case actionTypes.REDRAW: {
-
 			return reDraw(state, action);
 		}
 		default: return initialState;
@@ -22,8 +21,7 @@ export function histogram(state = initialState, action) {
 
 }
 function reDraw(state, action) {
-
-	return {...state, z:[1,2,3]};
+	return {...state, data:Math.random()*10};
 }
 // тут должен быть селектор.
 //Селектор — это чистая функция, принимающая в качестве аргумента глобальный стейт и возвращающая его в преобразованном виде.
