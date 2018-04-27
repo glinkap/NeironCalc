@@ -2,9 +2,9 @@ import * as actionTypes from '../constants/actionTypes';
 export const fetchData = function (url) {
 	return fetch(url)
 		.then((response) => response.json())
-		.then((req) => {
-			console.log(req);
-		});
+		// .then((req) => {
+		// 	console.log(req);
+		// });
 }; 
 
 

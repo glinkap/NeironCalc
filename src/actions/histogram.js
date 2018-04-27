@@ -11,6 +11,9 @@ export function addLine(text = '') {
 export function reDraw(index = '') {
   return { type: actionTypes.REDRAW, index }
 }
+export function fetchGraphData(params = {}) {
+  return { type: actionTypes.REDRAW, params }
+}
 
 export function setVisibilityFilter(filter) {
   return { type: actionTypes.SET_VISIBILITY_FILTER, filter }
