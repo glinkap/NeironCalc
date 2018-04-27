@@ -1,59 +1,22 @@
 import React from 'react';
-import {BarChart} from 'react16-d3-basic';
-
-// import generalChartData from 'dsv?delimiter=\t!../data/letter.tsv';
-// const generalChartData = [{
-//     label: 'somethingA',
-//     values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
-// }];
-const generalChartData =[
-      {x: 'A', y: 20},
-      {x: 'B', y: 30},
-      {x: 'C', y: 40},
-      {x: 'D', y: 20},
-      {x: 'E', y: 40},
-      {x: 'F', y: 25},
-      {x: 'G', y: 5}
-    ];
-
-
-
-  const width = 700,
-    height = 400,
-    title = "Bar Chart",
-    chartSeries = [
-      {
-        field: 'frequency',
-        name: 'Frequency'
-      }
-    ],
-    x = function(d) {
-      return d.letter;
-    },
-    xScale = 'ordinal',
-    xLabel = "Letter",
-    yLabel = "Frequency",
-    yTicks = [10, "%"];
-
-
+import { Chart } from 'react-google-charts';
 
 
 export default function histogram(graphData = [], btnClick) {
 	return (
-		<div>
-			<BarChart
-				title= {title}
-				data= {generalChartData}
-				width= {width}
-				height= {height}
-				chartSeries = {chartSeries}
-				x= {x}
-				xLabel= {xLabel}
-				xScale= {xScale}
-				yTicks= {yTicks}
-				yLabel = {yLabel}
-		    />
+		<div>			
 			<div>Здесь будет график </div>
+
+		<Chart
+			chartType="ScatterChart"
+			data={[['Age', 'Weight'], [8, 12], [4, 5.5]]}
+			options={{}}
+			graph_id="ScatterChart"
+			width="100%"
+			height="400px"
+			legend_toggle
+        />
+
 			<button onClick={btnClick} type="button">Fetch graph data</button>
 		</div>	
 		);
