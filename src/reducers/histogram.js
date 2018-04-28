@@ -29,6 +29,7 @@ function reDraw(state, action) {
 	return {...state, data:Math.random()*10};
 }
 function fetchGraphData(state, action) {
+	console.log("state", state);
 	return {
 		...state, data: services.fetchData(action.url)
 	}

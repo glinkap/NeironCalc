@@ -11,8 +11,11 @@ export function addLine(text = '') {
 export function reDraw(index = '') {
   return { type: actionTypes.REDRAW, index }
 }
-export function fetchGraphData(params = {}) {
-  return { type: actionTypes.REDRAW, params }
+export function fetchGraphData(url = '') {
+  return  { type: actionTypes.FETCH_GRAPH_DATA, url }; /*(dispatch, getState) => {
+  	console.log(dispatch);
+  }*/
+
 }
 
 export function setVisibilityFilter(filter) {

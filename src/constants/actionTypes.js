@@ -21,7 +21,8 @@ export const VisibilityFilters = {
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
-
+export const FETCH_ACCOUNT = 'FETCH_ACCOUNT';
+export const RECEIVE_ACCOUNT = 'RECEIVE_ACCOUNT';
 /*
 export const SET_SESSION = 'SET_SESSION';
 export const SET_USER = 'SET_USER';

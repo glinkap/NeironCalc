@@ -6,7 +6,7 @@ import * as actions from '../../actions/histogram';
 
 class Histogram extends Component {
 	render() {
-		return presenter(/*this.props.fetchGraphData*/ () => {console.log(this)});
+		return presenter(this.props.fetchGraphData, () => {console.log(this)});
 	}
 }
 
