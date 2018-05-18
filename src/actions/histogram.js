@@ -17,6 +17,12 @@ export function fetchGraphData(url = '') {
   }*/
 
 }
+export function test() {
+  return  { type: actionTypes.SET_VISIBILITY_FILTER, payloads:'payloads...SET_VISIBILITY_FILTER' }; /*(dispatch, getState) => {
+  	console.log(dispatch);
+  }*/
+
+}
 
 export function setVisibilityFilter(filter) {
   return { type: actionTypes.SET_VISIBILITY_FILTER, filter }

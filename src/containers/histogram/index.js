@@ -21,6 +21,7 @@ function mapDispatchToProps(dispatch) {
     reDraw: bindActionCreators(actions.reDraw, dispatch),
     addLine: bindActionCreators(actions.addLine, dispatch),
     fetchGraphData: bindActionCreators(actions.fetchGraphData, dispatch),
+    filter: bindActionCreators(actions.test, dispatch),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Histogram);

@@ -1,7 +1,12 @@
 import * as actionTypes from '../constants/actionTypes';
 export const fetchData = function (url) {
-	return fetch('http://80.211.29.190/api/histogram/3')
+	return fetch('http://neiron-calc.ru/api/dataset/2/histogram')
+		// .then(handleErrors)
 		.then((response) => response.json())
+		.then(json => {
+			console.log("json", json);
+			
+		});
 		// .then((req) => {
 		// 	console.log(req);
 		// });

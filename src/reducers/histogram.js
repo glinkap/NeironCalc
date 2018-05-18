@@ -4,6 +4,31 @@ import * as services from '../services/services'
 
 export const initialState = {
   data: [],
+  dataChart:{
+  	 options: {
+  	         title: 'Age vs. Weight comparison',
+  	         hAxis: { title: 'Age', minValue: 0, maxValue: 15 },
+  	         vAxis: { title: 'Weight', minValue: 0, maxValue: 15 },
+  	         legend: 'none',
+  	     },
+  	     rows: [
+  	         [8, 12],
+  	         [4, 5.5],
+  	         [11, 14],
+  	         [4, 5],
+  	         [3, 3.5],
+  	         [6.5, 7],
+  	     ],
+  	     columns: [{
+  	             type: 'number',
+  	             label: 'Age',
+  	         },
+  	         {
+  	             type: 'number',
+  	             label: 'Weight',
+  	         },
+  	     ]
+  },
   loaded: false,
   loading: false,
 };
@@ -29,7 +54,6 @@ function reDraw(state, action) {
 	return {...state, data:Math.random()*10};
 }
 function fetchGraphData(state, action) {
-	console.log("state", state);
 	return {
 		...state, data: services.fetchData(action.url)
 	}

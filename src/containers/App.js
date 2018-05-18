@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Histogram from './histogram/index'
+import Chart from './chart/index'
 
 class App extends Component {
 	
@@ -8,7 +8,7 @@ class App extends Component {
 		return (
 			<div>	
 				<div>App2test {this.props.state.histogram.loaded.toString()}</div>
-				<Histogram />
+				<Chart />
 			</div>
 		)
 	}
