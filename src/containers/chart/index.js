@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/histogram';
+import * as graphActions from '../../actions/graphActions';
 import { Chart } from 'react-google-charts';
 
 class GoogleChart extends Component {
+	componentWillMount() {
+		// this.props.fetchGraphData();
+	}
+	componentWillUnmount() {}
 	render() {
 		return (
 			<div>			
-				<button   type="button">Fetch graph data</button>
-				<div>график ScatterChart</div>
+				// <button  onClick={() => this.props.fetchGraphData('http://neiron-calc.ru/api/dataset/2/histogram')} type="button">Fetch graph data</button>
+				<div>график LineChart</div>
 
 				<Chart
 					chartType="LineChart"
@@ -33,8 +37,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    setGraph: bindActionCreators(actions.reDraw, dispatch),
-    fetchGraphData: bindActionCreators(actions.fetchGraphData, dispatch),
+    setGraph: bindActionCreators(graphActions.setChart, dispatch),
+    fetchGraphData: bindActionCreators(graphActions.fetchGraphData, dispatch),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleChart);
