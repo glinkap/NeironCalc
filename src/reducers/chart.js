@@ -3,7 +3,7 @@ import * as actionTypes from '../constants/actionTypes'
 import * as graphActions from '../actions/graphActions'
 
 export const initialState = {
-    data: [],
+    data: [0,0],
     dataChart:
         [
             ['Dinosaur', 'Length'],
@@ -19,22 +19,21 @@ export const initialState = {
     ,
     loaded: false,
     loading: false,
+    error: false,
 };
 export function chart(state = initialState, action) {
 	switch(action.type) {		
         case graphActions.FETCH_GRAPH_DATA: {
-            return {...state, data: graphActions.getData(state, action)};
         }
-		case graphActions.FETCH_GRAPH_BEGIN: {}
-		case graphActions.FETCH_GRAPH_SUCCESS: {
-            console.log(action);
+        case graphActions.FETCH_GRAPH_BEGIN: {}
+        case graphActions.FETCH_GRAPH_SUCCESS: {
+            return {...state, data: action.payload};
         }
-        case graphActions.FETCH_GRAPH_FAILURE: {}
-		case graphActions.SET_DATA_CHART: {
-            return (
-                chartStateSelector(state, action)
-            )
+        case graphActions.FETCH_GRAPH_FAILURE: {
+            return {...state, error: action.payload};
         }
+        case graphActions.SET_DATA_CHART: {}
+		case graphActions.ADAPTER_TO_API: {}
 
 		default: return initialState;
 	}

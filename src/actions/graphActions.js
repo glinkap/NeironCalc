@@ -1,23 +1,32 @@
+// import adapter from './adapter';
 export const FETCH_GRAPH_DATA   = 'FETCH_GRAPH_DATA';
 export const FETCH_GRAPH_BEGIN   = 'FETCH_GRAPH_BEGIN';
 export const FETCH_GRAPH_SUCCESS = 'FETCH_GRAPH_SUCCESS';
 export const FETCH_GRAPH_FAILURE = 'FETCH_GRAPH_FAILURE';
+export const ADAPTER_TO_API = 'ADAPTER_TO_API';
 export const SET_DATA_CHART = 'SET_DATA_CHART';
 
-export const fetchGraphData = (url) => ({
-  type: FETCH_GRAPH_DATA,
-  url: url
-});
+export const URL_HISTOGRAM = 'http://neiron-calc.ru/api/dataset/';
+
+export const fetchGraphData = (url) => {
+  return {
+    type: FETCH_GRAPH_DATA,
+    url: url
+  }
+};
 export const setChart = () => ({
   type: SET_DATA_CHART
 });
 export const fetchGraphBegin = () => ({
   type: FETCH_GRAPH_BEGIN
 });
+export const adapterStart = json => ({
+  type: ADAPTER_TO_API,
+});
 
-export const fetchGraphSuccess = graphData => ({
+export const fetchGraphSuccess = json => ({
   type: FETCH_GRAPH_SUCCESS,
-  payload: { graphData }
+  payload: { json }
 });
 
 export const fetchGraphError = error => ({
@@ -25,14 +34,21 @@ export const fetchGraphError = error => ({
   payload: { error }
 });
 
-export function getData(url) {
+export function getData(params) {
   return dispatch => {
     dispatch(fetchGraphBegin());
+    const url = URL_HISTOGRAM + params.id + '/' + params.chartType;
     return fetch(url)
-      .then(handleErrors)
+      .then()
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchGraphSuccess(json));
+        if (json.status > 200 || json.status == 'error') {
+          dispatch(fetchGraphError(json));
+        } else {
+          dispatch(fetchGraphSuccess(json));
+          // dispatch(adapterStart(json));
+
+        }
         //если вызвать без диспатч , то нельзя будет событие словить в редюсерах
         return json;
       })
@@ -41,9 +57,9 @@ export function getData(url) {
 }
 
 // Handle HTTP errors since fetch won't.
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
+function handleErrors(res) {
+  if (res.status > 200 || res.status == 'error') {
+    throw Error('Не правильный адрес или нет данных ' + res.error);
   }
-  return response;
+  return res;
 }

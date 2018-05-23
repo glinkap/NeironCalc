@@ -12,7 +12,7 @@ class GoogleChart extends Component {
 	render() {
 		return (
 			<div>			
-				// <button  onClick={() => this.props.getData('http://neiron-calc.ru/api/dataset/2/histogram')} type="button">Fetch graph data</button>
+				// <button  onClick={() => this.props.getData({id: 2, chartType: 'histogram'})} type="button">Fetch graph data</button>
 				<div>график LineChart</div>
 
 				<Chart
@@ -39,7 +39,7 @@ function mapDispatchToProps(dispatch) {
   return {
     setGraph: bindActionCreators(graphActions.setChart, dispatch),
     fetchGraphData: bindActionCreators(graphActions.fetchGraphData, dispatch),
-    getData: (url) => dispatch(graphActions.getData(url)),
+    getData: (params) => dispatch(graphActions.getData(params)),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleChart);
