@@ -23,10 +23,12 @@ export const initialState = {
 export function chart(state = initialState, action) {
 	switch(action.type) {		
         case graphActions.FETCH_GRAPH_DATA: {
-            graphActions.getData(state, action);
+            return {...state, data: graphActions.getData(state, action)};
         }
 		case graphActions.FETCH_GRAPH_BEGIN: {}
-		case graphActions.FETCH_GRAPH_SUCCESS: {}
+		case graphActions.FETCH_GRAPH_SUCCESS: {
+            console.log(action);
+        }
         case graphActions.FETCH_GRAPH_FAILURE: {}
 		case graphActions.SET_DATA_CHART: {
             return (

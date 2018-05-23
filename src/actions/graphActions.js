@@ -25,16 +25,16 @@ export const fetchGraphError = error => ({
   payload: { error }
 });
 
-export function getData(state, action) {
-  return (dispatch, getState) => {
+export function getData(url) {
+  return dispatch => {
     dispatch(fetchGraphBegin());
-    console.log("this", this);
-    return fetch(action.url)
+    return fetch(url)
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchGraphSuccess(json.graphData));
-        return json.graphData;
+        dispatch(fetchGraphSuccess(json));
+        //если вызвать без диспатч , то нельзя будет событие словить в редюсерах
+        return json;
       })
       // .catch(error => dispatch(fetchGraphFailure(error)));
   };
