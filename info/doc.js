@@ -207,3 +207,18 @@ import fetch from 'isomorphic-fetch'
 состояния, если не действие не применяется.
 
 */
+
+export function addComment(postId, message) {
+  return {
+    types: ['ADD_COMMENT_REQUEST', 'ADD_COMMENT_SUCCESS', 'ADD_COMMENT_FAILURE'],
+    callAPI: () => fetch(`http://myapi.com/posts/${postId}/comments`, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message })
+    }),
+    payload: { postId, message }
+  }
+}

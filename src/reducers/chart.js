@@ -25,7 +25,9 @@ export function chart(state = initialState, action) {
 	switch(action.type) {		
         case graphActions.FETCH_GRAPH_DATA: {
         }
-        case graphActions.FETCH_GRAPH_BEGIN: {}
+        case graphActions.FETCH_GRAPH_BEGIN: {
+            return state;
+        }
         case graphActions.FETCH_GRAPH_SUCCESS: {
             return {...state, data: action.payload};
         }
