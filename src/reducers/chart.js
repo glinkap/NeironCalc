@@ -26,10 +26,11 @@ export function chart(state = initialState, action) {
         case graphActions.FETCH_GRAPH_DATA: {
         }
         case graphActions.FETCH_GRAPH_BEGIN: {
-            return state;
+            return {...state, loading:true};
         }
         case graphActions.FETCH_GRAPH_SUCCESS: {
-            return {...state, data: action.payload};
+            return {...state, data: action.payload,
+                loading:false, loaded:true};
         }
         case graphActions.FETCH_GRAPH_FAILURE: {
             return {...state, error: action.payload};
