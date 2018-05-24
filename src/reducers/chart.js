@@ -35,7 +35,9 @@ export function chart(state = initialState, action) {
             return {...state, error: action.payload};
         }
         case graphActions.SET_DATA_CHART: {}
-		case graphActions.ADAPTER_TO_API: {}
+		case graphActions.ADAPTER_TO_API: {
+            return state;
+        }
 
 		default: return initialState;
 	}

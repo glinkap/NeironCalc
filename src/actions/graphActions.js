@@ -22,6 +22,7 @@ export const fetchGraphBegin = () => ({
 });
 export const adapterStart = json => ({
   type: ADAPTER_TO_API,
+  data: json
 });
 
 export const fetchGraphSuccess = json => ({
@@ -46,12 +47,12 @@ export function getData(params) {
           dispatch(fetchGraphError(json));
         } else {
           dispatch(fetchGraphSuccess(json));
-          // dispatch(adapterStart(json));
+          dispatch(adapterStart(json));
 
         }
         //если вызвать без диспатч , то нельзя будет событие словить в редюсерах
         return json;
-      })
+      });
       // .catch(error => dispatch(fetchGraphFailure(error)));
   };
 }
