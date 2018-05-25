@@ -16,9 +16,22 @@ class GoogleChart extends Component {
 				<div>график LineChart</div>
 
 				<Chart
-					chartType="LineChart"
-					data={this.props.chart.dataChart}
-					options={{}}
+					chartType="Histogram"
+					// data={this.props.chart.dataChart}
+					data={
+						[	['zaza', 'zaza'],
+							['1483783308-1488726014', 15],
+							['1488726015-1493668722', 3],
+							['1493668723-1498611429', 10],
+
+						]
+					}
+					options= {{
+    title: 'Country Populations',
+    legend: { position: 'none' },
+    colors: ['green'],
+    enableInteractivity: true,
+  }}
 					graph_id="LineChart"
 					width="100%"
 					height="400px"

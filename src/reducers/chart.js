@@ -44,17 +44,8 @@ export function chart(state = initialState, action) {
 	}
 
 };
-function chartStateSelector(state, action) { return {...state,z:5}}
 
 
-function fetchGraphData(state, action) {
-	return {
-		...state, data: graphActions.fetchGraphData(action.url)
-	}
-}
-
-
-// services.fetchData('http://80.211.29.190/api/histogram/3')
 // тут должен быть селектор.
 //Селектор — это чистая функция, принимающая в качестве аргумента глобальный стейт и возвращающая его в преобразованном виде.
 // Правило: вся бизнес-логика должна находиться внутри обработчиков событий (санков), селекторов и редюсеров.
